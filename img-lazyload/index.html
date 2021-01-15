@@ -1,0 +1,38 @@
+<!--
+ * @Description: img-lazyload
+ * @Author: 艾欢欢
+ * @Date: 2021-01-15 14:24:13
+ * @LastEditTime: 2021-01-15 14:30:24
+ * @LastEditors: 艾欢欢<ahh666@qq.com>
+ * @FilePath: \js-essays\img-lazyload\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>img-lazyload</title>
+  <style>
+    #out {
+      width: 400px;
+    }
+    img {
+      width: 400px;
+      height: 220px;
+      margin-bottom: 40px;
+    }
+    .lazy-img {
+      background: url('./img/loading.gif') no-repeat center;
+    }
+  </style>
+</head>
+<body>
+  <div id="out">
+    <img class="lazy-img" data-src="./img/292448.jpg" >
+    <img class="lazy-img" data-src="./img/307627.jpg" >
+    <img class="lazy-img" data-src="./img/322980.jpg" >
+    <img class="lazy-img" data-src="./img/wp.jpg" >
+  </div>
+</body>
+<script src="./index.js"></script>
+</html>
