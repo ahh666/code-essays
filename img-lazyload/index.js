@@ -2,7 +2,7 @@
  * @Description: 思路：当图片滚动至（处在）可视区域内时，再给 img 加上 src 属性
  * @Author: 艾欢欢<ahh666@qq.com>
  * @Date: 2021-01-15 14:24:13
- * @LastEditTime: 2021-01-18 15:49:16
+ * @LastEditTime: 2021-01-18 16:24:30
  * @LastEditors: 艾欢欢<ahh666@qq.com>
  * @FilePath: \js-essays\img-lazyload\index.js
  */
@@ -13,7 +13,7 @@ class ImgLazyload {
     this.byScroll = this.byScroll.bind(this)
     this.init()
   }
-
+  // 节流
   _throttle(fn, wait = 200) {
     let lastTime = 0
     return () => {
@@ -24,7 +24,7 @@ class ImgLazyload {
       }
     }
   }
-
+  // 使用 IntersectionObserver API
   byIntersectionObserver() {
     // 此方法 IE 不支持
     const io = new IntersectionObserver(entries => {
@@ -41,13 +41,13 @@ class ImgLazyload {
       io.observe(el)
     })
   }
-
+  // 获取需要使用懒加载的图片集合
   getLazyloadImgElements() {
     return this.imgElements.filter(el => {
       return el.hasAttribute('data-src')
     })
   }
-
+  // 使用滚动监听
   byScroll() {
     const lazyImgs = this.getLazyloadImgElements()
     const len = lazyImgs.length
@@ -71,6 +71,7 @@ class ImgLazyload {
       this.byIntersectionObserver()
     } else {
       this.byScroll()
+      // 使用节流函数
       this._throttleBind = this._throttle(this.byScroll, 200)
       window.addEventListener('scroll', this._throttleBind)
     }
