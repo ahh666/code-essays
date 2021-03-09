@@ -1,0 +1,42 @@
+<!--
+ * @Description: Description
+ * @Author: 艾欢欢<ahh666@qq.com>
+ * @Date: 2021-03-09 11:02:59
+ * @LastEditTime: 2021-03-09 15:03:00
+ * @LastEditors: 艾欢欢<ahh666@qq.com>
+ * @FilePath: \js-essays\draggable\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>拖拽切换元素</title>
+  </head>
+  <style>
+    #drag-box {
+      background: #f3f5f6;
+      height: 100vh;
+      padding: 50px;
+    }
+    #drag-box > div {
+      color: #333;
+      width: 300px;
+      height: 40px;
+      line-height: 40px;
+      background-color: #fff;
+      margin-bottom: 6px;
+      border: 1px solid darkcyan;
+    }
+  </style>
+  <body>
+    <div id="drag-box">
+      <div draggable="true">唐僧</div>
+      <div draggable="true">孙猴子</div>
+      <div draggable="true">八戒</div>
+      <div draggable="true">沙和尚</div>
+    </div>
+  </body>
+  <script src="./index.js"></script>
+</html>
