@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>debounce</title>
+  </head>
+  <body>
+    <input type="text" oninput="handleInput(value, 666)" />
+  </body>
+  <script src="./index.js"></script>
+  <script>
+    function handler(value, a = 'a', b = 'b') {
+      console.log('停止输入500ms后，处理逻辑：', value, a, b)
+    }
+    const handleInput = debounce(handler, 500)
+  </script>
+</html>
