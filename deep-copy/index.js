@@ -2,7 +2,7 @@
  * @Description: 深拷贝的思考和探索
  * @Author: 艾欢欢<ahh666@qq.com>
  * @Date: 2021-07-27 17:21:10
- * @LastEditTime: 2021-07-30 17:31:33
+ * @LastEditTime: 2021-07-30 17:43:57
  * @LastEditors: 艾欢欢<ahh666@qq.com>
  * @FilePath: \js-essays\deep-copy\index.js
  */
@@ -148,4 +148,4 @@ function createData(deep, breadth) {
 const deepData = createData(10000, 1)
 
 // deepCopy(deepData) // Uncaught RangeError: Maximum call stack size exceeded ->栈溢出
-// cloneLoop(deepData)
+cloneLoop(deepData)
