@@ -2,7 +2,7 @@
  * @Description: Description
  * @Author: 艾欢欢<ahh666@qq.com>
  * @Date: 2021-08-02 09:46:20
- * @LastEditTime: 2021-08-02 10:34:58
+ * @LastEditTime: 2021-08-02 11:16:12
  * @LastEditors: 艾欢欢<ahh666@qq.com>
  * @FilePath: \js-essays\throttle\index.html
 -->
@@ -15,13 +15,18 @@
     <title>throttle</title>
   </head>
   <body>
-    <input type="text" oninput="handleInput(value, 666)" />
+    立即执行，之后不超过1s不触发：<input type="text" oninput="handleInput(value, 666)" />
+    <br>
+    立即执行，根据参数判断是否执行最后一次动作：
+    <input type="text" oninput="handleInput2(value, 666)" />
   </body>
   <script src="./index.js"></script>
+  <script src="./index2.js"></script>
   <script>
     function handler(value, a = 'a', b = 'b') {
       console.log('每隔1s处理逻辑，立即执行，之后不超过1s不触发：', value, a, b)
     }
     const handleInput = throttle(handler, 1000)
+    const handleInput2 = throttle(handler, 1000, true)
   </script>
 </html>
