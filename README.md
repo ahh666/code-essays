@@ -6,7 +6,7 @@
 
 ## draggable
 
-[JS实现拖拽元素交换位置_艾欢欢的博客](https://blog.csdn.net/AiHuanhuan110/article/details/114593251)
+[博客：JS实现拖拽元素交换位置](https://blog.csdn.net/AiHuanhuan110/article/details/114593251)
 
 ## deep-copy
 
@@ -18,8 +18,11 @@
 
 ## 防抖、节流
 
+[博客：JS节流(throttle)和防抖(debounce)的理解和实现](https://blog.csdn.net/AiHuanhuan110/article/details/89225819)
+
 - 防抖：停止操作一个时间周期后，执行方法
 - 节流：立即执行第一次，之后每隔一个时间周期触发一次方法，操作时间不足一个周期则不触发
+- 节流升级：增加参数，用来决定是否执行最后一次未达到一个时间周期的动作，默认不执行
 
 
 
