@@ -1,0 +1,27 @@
+<!--
+ * @Description: Description
+ * @Author: 艾欢欢<ahh666@qq.com>
+ * @Date: 2021-08-02 09:46:20
+ * @LastEditTime: 2021-08-02 10:34:58
+ * @LastEditors: 艾欢欢<ahh666@qq.com>
+ * @FilePath: \js-essays\throttle\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>throttle</title>
+  </head>
+  <body>
+    <input type="text" oninput="handleInput(value, 666)" />
+  </body>
+  <script src="./index.js"></script>
+  <script>
+    function handler(value, a = 'a', b = 'b') {
+      console.log('每隔1s处理逻辑，立即执行，之后不超过1s不触发：', value, a, b)
+    }
+    const handleInput = throttle(handler, 1000)
+  </script>
+</html>

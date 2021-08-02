@@ -2,9 +2,9 @@
  * @Description: 深拷贝的思考和探索
  * @Author: 艾欢欢<ahh666@qq.com>
  * @Date: 2021-07-27 17:21:10
- * @LastEditTime: 2021-07-30 17:43:57
+ * @LastEditTime: 2021-08-02 09:47:14
  * @LastEditors: 艾欢欢<ahh666@qq.com>
- * @FilePath: \js-essays\deep-copy\index.js
+ * @FilePath: \js-essays\deepcopy\index.js
  */
 
 /**
