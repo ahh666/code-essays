@@ -2,7 +2,7 @@
  * @Description: Description
  * @Author: 艾欢欢<ahh666@qq.com>
  * @Date: 2021-08-02 10:55:38
- * @LastEditTime: 2021-08-02 11:17:10
+ * @LastEditTime: 2021-08-02 13:53:00
  * @LastEditors: 艾欢欢<ahh666@qq.com>
  * @FilePath: \js-essays\throttle\index2.js
  */
@@ -11,7 +11,7 @@
  * @description: 节流，立即执行，根据参数判断是否执行最后一次动作
  * @param {*} fn
  * @param {*} wait
- * @param {*} trailing 用来决定是否执行最后一次但未达到一个时间周期的动作，默认不执行
+ * @param {*} trailing 用来决定是否执行最后一次未达到一个时间周期的动作，默认不执行
  * @return {*}
  */
 function throttle(fn, wait = 300, trailing = false) {
