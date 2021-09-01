@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .canvas {
+        margin: 100px;
+        width: 300px;
+        height: 300px;
+        padding: 30px;
+        background-color:floralwhite;
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <canvas id="canvas"></canvas>
+    </div>
+  </body>
+  <script>
+    class ArcProgress {
+      constructor(opt = {} || '') {
+        // 获取 canvas
+        this.canvas = typeof(opt) === 'string' ? document.getElementById(opt) : document.getElementById(opt.id)
+
+        // 设置 canvas画布大小
+        this.parentEleStyle = window.getComputedStyle(this.canvas.parentElement, null)
+        this.canvas.width = parseFloat(this.parentEleStyle.width)
+        this.canvas.height = parseFloat(this.parentEleStyle.height)
+
+        // 清除已存在的视图
+        this.canvas.nextElementSibling && this.canvas.nextElementSibling.remove()
+        this.ctx = this.canvas.getContext('2d')
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+
+        // 设置 canvas属性
+        this.lineWidth = opt.lineWidth || 20
+        this.x = this.canvas.width / 2
+        this.y = this.canvas.height / 2
+        this.r = (this.canvas.width - this.lineWidth) / 2
+        this.lineCap = opt.lineCap || 'round'
+        this.strokeStyle = opt.strokeStyle || 'green'
+        this.progress = opt.progress || 70
+        this.currentProgress = 0
+        
+        // 绑定动画
+        this.bindAnimate = this.animateDraw.bind(this)
+        // 绘制背景
+        this.drawBg()
+        // 文本区域
+        this.textEle = this.renderText()
+        // 动画
+        this.timer = 1
+        opt.animate ? this.animateDraw() : this.draw()
+      }
+
+      renderText() {
+        const textEle = document.createElement('div')
+        // textEle.style.width = this.r + 'px'
+        // textEle.style.height = this.r + 'px'
+        textEle.style.position = 'absolute'
+        textEle.style.top = '50%'
+        textEle.style.left = '50%'
+        textEle.style.transform = 'translate(-50%, -50%)'
+        textEle.style.display = 'flex'
+        textEle.style.justifyContent = 'center'
+        textEle.style.alignItems = 'center'
+        textEle.style.fontSize = this.r / 2 + 'px'
+
+        // textEle.innerText = this.progress * 100 + '%'
+        // this.canvas.parentElement.appendChild(textEle)
+        return textEle
+      }
+
+      textAnimate(progress) {
+        this.textEle.innerText = progress.toFixed(2) + '%'
+        this.canvas.parentElement.appendChild(this.textEle)
+      }
+
+      drawBg() {
+        this.ctx.beginPath()
+        this.ctx.strokeStyle = '#dbdbdb'
+        this.ctx.lineWidth = this.lineWidth
+        this.ctx.lineCap = this.lineCap
+        this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)
+        this.ctx.stroke()
+      }
+
+      drawBase() {
+        this.ctx.beginPath()
+        this.ctx.strokeStyle = this.strokeStyle
+        this.ctx.lineWidth = this.lineWidth
+        this.ctx.lineCap = this.lineCap
+        this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2 * this.currentProgress / 100)
+        this.ctx.stroke()
+      }
+
+      draw() {
+        this.currentProgress = this.progress
+        this.drawBase()
+        this.textAnimate(this.currentProgress)
+      }
+
+      animateDraw() {
+        this.drawBase()
+        this.textAnimate(this.currentProgress)
+        // 动画效果过渡更好，但是性能消耗更多
+        // this.timer *= 0.99
+        this.currentProgress += this.timer
+        if (this.currentProgress <= this.progress) {
+          // setTimeout(this.bindAnimate, 60)
+          requestAnimationFrame(this.bindAnimate)
+        } else {
+          this.textAnimate(this.progress)
+          this.currentProgress = this.progress
+        }
+      }
+    }
+
+    new ArcProgress({
+      id: 'canvas',
+      progress: 80,
+      animate: true
+    })
+  </script>
+</html>

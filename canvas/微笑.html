@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #canvas {
+        margin: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas" width="300px" height="300px"></canvas>
+  </body>
+  <script>
+    const canvas = document.getElementById('canvas')
+    const ctx = canvas.getContext('2d')
+
+    function smileFace() {
+      ctx.arc(100, 100, 50, 0, Math.PI * 2)
+      ctx.moveTo(85, 90)
+      ctx.arc(80, 90, 5, 0, Math.PI * 2)
+      ctx.moveTo(125, 90)
+      ctx.arc(120, 90, 5, 0, Math.PI * 2)
+      ctx.moveTo(130, 100)
+      ctx.arc(100, 100, 30, 0, Math.PI)
+      ctx.stroke()
+    }
+    smileFace()
+  </script>
+</html>
