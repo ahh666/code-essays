@@ -1,0 +1,161 @@
+<!--
+ * @Author       : Archer<ahh666@qq.com>
+ * @Date         : 2021-10-12 10:46:45
+ * @LastEditors  : Archer<ahh666@qq.com>
+ * @LastEditTime : 2021-10-18 10:58:02
+ * @FilePath     : \js-essays\css-bfc\index.html
+ * @Description  : Description
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css-bfc</title>
+    <style>
+      body {
+        margin-bottom: 50px;
+      }
+
+      .bfc {
+        display: flow-root;
+        /* overflow: hidden; */
+      }
+
+      .flex {
+        display: flex;
+      }
+
+      .box {
+        display: flow-root;
+        border: 1px solid #107e7e6c;
+        border-radius: 8px;
+        box-shadow: 1px 1px 4px #d1caca;
+        margin-bottom: 20px;
+        padding: 20px;
+      }
+
+      /* 两栏布局 */
+      .two-col-left {
+        float: left;
+        width: 100px;
+        height: 100px;
+        background: tan;
+      }
+      .two-col-right {
+        height: 120px;
+        background: steelblue;
+      }
+
+      /* 三栏布局 */
+      .three-col-left {
+        float: left;
+        width: 100px;
+        height: 100px;
+        background: tan;
+      }
+      .three-col-right {
+        float: right;
+        width: 80px;
+        height: 120px;
+        background: tan;
+      }
+      .three-col-center {
+        height: 80px;
+        background: steelblue;
+      }
+
+      /* 处理 margin 塌陷 */
+      .top,
+      .bottom {
+        height: 20px;
+        width: 40px;
+        background: cadetblue;
+        margin: 20px;
+      }
+
+      /* 浮动元素等高 */
+      .out {
+        background-color: rgb(224, 206, 247);
+        border: 5px solid rebeccapurple;
+      }
+      .float {
+        float: left;
+        width: 200px;
+        height: 100px;
+        background-color: white;
+        border: 1px solid black;
+        padding: 10px;
+      }
+
+      /* 禁止浮动 */
+      .flood {
+        width: 350px;
+        font-size: 22px;
+        height: 200px;
+        background: cadetblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h3>两栏布局，float & display</h3>
+      <h4>方法：给固定宽度的元素设置浮动，给自适应宽度的元素设置BFC</h4>
+      <div class="two-col-left"></div>
+      <div class="two-col-right bfc"></div>
+    </div>
+
+    <div class="box">
+      <h3>三栏布局，float & display</h3>
+      <div class="three-col-left"></div>
+      <div class="three-col-right"></div>
+      <!-- 注意中间内容的位置,放在这里用于创建 BFC -->
+      <div class="three-col-center bfc"></div>
+    </div>
+
+    <div class="box">
+      <h3>处理 margin 塌陷</h3>
+      <h4>方法：给其中一个box外层包一层BFC元素</h4>
+      <div class="flex">
+        <div class="left">
+          <div class="top"></div>
+          <div class="bottom"></div>
+        </div>
+        <div class="right">
+          <div class="top"></div>
+          <div class="bfc">
+            <div class="bottom"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <h3>浮动元素等高</h3>
+      <h4>方法：给父元素设置BFC</h4>
+
+      <div class="out">
+        <div class="float">I am a floated box!</div>
+        <p>I am content inside the container.</p>
+      </div>
+      <br />
+      <h4 style="margin-top: 70px">创建BFC后</h4>
+      <div class="out bfc">
+        <div class="float">I am a floated box!</div>
+        <p>I am content inside the container.</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <h3>浮动元素等高</h3>
+      <h4>方法：给出现文字环绕现象的元素设置BFC</h4>
+
+      <div class="float">I am a floated box!</div>
+      <div class="flood">I am content inside the container.I am content inside the container.</div>
+      <br />
+      <div class="float">I am a floated box!</div>
+      <div class="flood bfc">I am content inside the container.I am content inside the container.</div>
+    </div>
+  </body>
+</html>
