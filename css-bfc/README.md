@@ -1,5 +1,7 @@
 # CSS中的BFC
 
+**源码示例：[code-essays/css-bfc](https://github.com/ahh666/code-essays/tree/main/css-bfc)**
+
 ## BFC 是什么
 
 MDN对其的定义：
@@ -58,7 +60,9 @@ MDN对其的定义：
 
 
 
-## 使用场景（结合示例源码）
+## 使用场景
+
+结合源码示例：[code-essays/css-bfc](https://github.com/ahh666/code-essays/tree/main/css-bfc)
 
 1. 两栏、三栏布局（方法：给固定宽度的元素设置浮动，给自适应宽度的元素设置BFC）
 2. 处理margin塌陷（方法：给其中一个box外层包一层BFC元素）
@@ -71,9 +75,9 @@ MDN对其的定义：
 
 ### `Box`, `Formatting context ` 的概念
 
-#### Box: CSS布局的基本单位
+#### Box
 
-`Box`是CSS布局的对象和基本单位， 直观点来说，就是一个页面是由很多个`Box`组成的。元素的类型和display属性，决定了这个`Box`的类型。 不同类型的`Box`， 会参与不同的`Formatting context`(一个决定如何渲染文档的容器)，因此`Box`内的元素会以不同的方式渲染：
+`Box`是CSS布局的基本单位， 也就是说一个页面是由很多个`Box`组成的。元素的类型和display属性，决定了这个`Box`的类型。 不同类型的`Box`， 会参与不同的`Formatting context`(一个决定如何渲染文档的容器)，因此`Box`内的元素会以不同的方式渲染：
 
 - `block-level box`: display属性为block, list-item, table的元素，会生成`block-level box`。并且参与`block fomatting context`。
 - `inline-level box`: display属性为inline, inline-block, inline-table的元素，会生成`inline-level box`。并且参与`inline formatting context`。
