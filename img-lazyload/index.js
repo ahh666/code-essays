@@ -2,9 +2,9 @@
  * @Description: 思路：当图片滚动至（处在）可视区域内时，再给 img 加上 src 属性
  * @Author: 艾欢欢<ahh666@qq.com>
  * @Date: 2021-01-15 14:24:13
- * @LastEditTime: 2021-01-18 16:24:30
- * @LastEditors: 艾欢欢<ahh666@qq.com>
- * @FilePath: \js-essays\img-lazyload\index.js
+ * @LastEditTime : 2021-12-16 13:44:06
+ * @LastEditors  : Archer<ahh666@qq.com>
+ * @FilePath     : \code-essays\img-lazyload\index.js
  */
 
 class ImgLazyload {
@@ -26,6 +26,11 @@ class ImgLazyload {
   }
   // 使用 IntersectionObserver API
   byIntersectionObserver() {
+    const options = {
+      // 指定观察元素
+      root: document.querySelector('#out'),
+    }
+
     // 此方法 IE 不支持
     const io = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -35,7 +40,7 @@ class ImgLazyload {
           io.unobserve(lazyImg)
         }
       })
-    })
+    }, options)
     const lazyImgs = this.getLazyloadImgElements()
     lazyImgs.forEach(el => {
       io.observe(el)
