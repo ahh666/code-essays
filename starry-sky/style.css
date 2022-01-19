@@ -1,0 +1,141 @@
+html {
+  font-size: 90px;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: #060e1b;
+}
+
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*初始化margin和padding以便于不同浏览器兼容*/
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+@media only screen and (max-device-width: 319px) {
+  html {
+    font-size: 45px;
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 359px) {
+  html {
+    font-size: 50px;
+  }
+}
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 374px) {
+  html {
+    font-size: 56.25px;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+  html {
+    font-size: 58.6px;
+  }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) {
+  html {
+    font-size: 64.68px;
+  }
+}
+
+body {
+  overflow: hidden;
+
+  background: #060e1b;
+}
+
+.content {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+
+/* border: 1px solid rgba(100, 100, 255, .3); */
+
+  border-radius: .2rem;
+  max-width: 60vw;
+
+  text-align: center;
+
+  transform: translateX(-50%);
+}
+
+#message {
+  border-radius: .2rem;
+
+  opacity: 0;
+}
+
+#message .word {
+  margin: .2rem auto;
+  padding: .1rem;
+
+  font-size: .4rem;
+  text-align: center;
+
+  color: rgba(200, 200, 255, .9);
+
+  text-shadow: 0 0 .2rem rgba(200, 200, 200, .8);
+}
+
+.copyright {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+
+  margin-left: -2rem;
+  width: 4rem;
+
+  font-size: .2rem;
+  text-align: center;
+
+  color: rgba(100, 100, 255, .9);
+}
+
+.change {
+  position: absolute;
+  right: .3rem;
+  bottom: -.8rem;
+
+  border: .01rem solid rgba(150, 150, 255, .3);
+  border-radius: 6px;
+  width: 1.2rem;
+  height: .5rem;
+
+  font-size: .28rem;
+  line-height: .5rem;
+
+  color: rgba(222, 222, 255, .9);
+  background-color: rgba(58, 58, 179, .2);
+
+  transition: all .3s;
+}
+
+.change:hover {
+  background-color: rgba(100, 100, 255, .2);
+
+  box-shadow: 0 0 .1rem .05rem rgba(50, 50, 255, .2);
+
+  cursor: pointer;
+}
+
+.change:active {
+  border: .01rem solid rgba(200, 200, 255, .8);
+}
